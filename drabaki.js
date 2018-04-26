@@ -4,14 +4,24 @@ get_phrases = require('./phrases');
 let phrases = get_phrases.drabaki_phrases();
 var catched_phrases = [];
 var catched_numbers = [];
+var timeout_users = [];
 var selected_number = 0;
 var remain_try = 5;
 
 drabaki.login(process.env.DRABAKI_TOKEN);
 drabaki.on('ready', () => { console.log('Danger'); })
 
+setInterval(function(){ 
+if(Object.keys(timeout_users).length > 0){
+Object.keys(timeout_users).forEach(function(n){
+timeout_users[n] -= 1;
+if(timeout_users[n] == 0){ timeout_users = removed_at(Object.keys(timeout_users),n)} })
+}
+}, 3000);
+
 drabaki.on('message', message => {
-	if(message.cleanContent.startsWith('@Drabaki')){
+	if(message.cleanContent.startsWith('@Drabaki') && (!Object.keys(timeout_users).includes('user_' + message.author.id) ||  message.member.permissions.has('ADMINISTRATOR'))){
+		timeout_users['user_' + message.author.id] = 5;	
 		const args = message.content.slice(1).trim().split(/ +/);
 		const command = (args[1] == undefined ? "chamada" : args[1]);
 		switch(command.toLowerCase()){
