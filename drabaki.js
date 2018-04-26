@@ -7,7 +7,7 @@ var catched_numbers = [];
 var selected_number = 0;
 var remain_try = 5;
 
-drabaki.login("process.env.BOT_TOKEN");
+drabaki.login("process.env.DRABAKI_TOKEN");
 drabaki.on('ready', () => { console.log('Danger'); })
 
 drabaki.on('message', message => {
