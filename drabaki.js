@@ -11,6 +11,12 @@ var remain_try = 5;
 drabaki.login(process.env.DRABAKI_TOKEN);
 drabaki.on('ready', () => { console.log('Danger'); })
 
+function removed_at(arr,value){
+var new_arr = [];
+arr.forEach(function(n){ if(value != n){new_arr[n] = timeout_users[n];} });
+return new_arr;
+}
+
 setInterval(function(){ 
 if(Object.keys(timeout_users).length > 0){
 Object.keys(timeout_users).forEach(function(n){
