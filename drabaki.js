@@ -62,7 +62,8 @@ drabaki.on('message', message => {
 		 break;
 		 case 'help':
 		 message.channel.send("```diff\n+Comandos para interagir com o Drabaki (Mencione-o antes do comando):\ngrr: Drabaki irá falar alguma coisa.\n\ndanger: Drabaki irá lhe atacar.\n\nround: Inicia uma investida contra Drabaki.```");
-		 default: 
+		break; 
+		default: 
 		 message.channel.send("```diff\n-Aviso, este comando não foi reconhecido. Use @Drabaki help para ver os comandos disponíveis.```");
 		}
 	}
