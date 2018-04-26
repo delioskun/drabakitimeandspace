@@ -1,1 +1,1 @@
-worker: node myu.js
+worker: node drabaki.js
