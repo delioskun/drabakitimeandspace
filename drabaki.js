@@ -14,7 +14,7 @@ drabaki.on('message', message => {
 	if(message.cleanContent.startsWith('@Drabaki')){
 		const args = message.content.slice(1).trim().split(/ +/);
 		const command = (args[1] == undefined ? "chamada" : args[1]);
-		switch(command){
+		switch(command.toLowerCase()){
 		 case 'grr':
 	     if(catched_phrases.length == phrases.length){catched_phrases = [];}
 		 var choosen_phrase = 0;
